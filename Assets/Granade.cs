@@ -5,7 +5,7 @@ using UnityEngine;
 public class Granade : MonoBehaviour
 {
 
-    public GameObject particles; 
+    public GameObject particles;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +19,8 @@ public class Granade : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision) {
-      Instantiate(particles, transform.position, Quaternion.identity);
+      var effect = Instantiate(particles, transform.position, Quaternion.identity);
+      Destroy(effect, 5);
       Destroy(gameObject);
     }
 }
